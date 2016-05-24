@@ -1,4 +1,4 @@
-update=Tuesday, 24 May 2016 'amt' 01:44:47
+update=Tue 24 May 2016 17:02:58 BST
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,3 +59,4 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=ic/microcontroller/stm32f405rxtx
+LibName31=esp01
