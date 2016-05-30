@@ -1,4 +1,4 @@
-update=Tue 24 May 2016 17:02:58 BST
+update=Monday, 30 May 2016 'amt' 00:23:01
 version=1
 last_client=kicad
 [pcbnew]
@@ -60,3 +60,6 @@ LibName28=contrib
 LibName29=valves
 LibName30=ic/microcontroller/stm32f405rxtx
 LibName31=esp01
+LibName32=connector/swd_tc
+LibName33=ncp1117
+LibName34=esp02
