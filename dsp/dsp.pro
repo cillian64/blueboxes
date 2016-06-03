@@ -1,4 +1,4 @@
-update=Monday, 30 May 2016 'amt' 00:23:01
+update=Fri 03 Jun 2016 17:17:14 BST
 version=1
 last_client=kicad
 [pcbnew]
@@ -63,3 +63,4 @@ LibName31=esp01
 LibName32=connector/swd_tc
 LibName33=ncp1117
 LibName34=esp02
+LibName35=misc/part

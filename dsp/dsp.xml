@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/auto/homes/dwt27/git/blueboxes/dsp/dsp.sch</source>
+    <date>Fri 03 Jun 2016 17:22:26 BST</date>
+    <tool>Eeschema 4.0.2+e4-6225~38~ubuntu14.04.1-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>dsp.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="IC1">
+      <value>STM32F405RxTx</value>
+      <footprint>agg:LQFP-64</footprint>
+      <datasheet>http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00037051.pdf</datasheet>
+      <fields>
+        <field name="Farnell">2064363</field>
+      </fields>
+      <libsource lib="stm32f405rxtx" part="STM32F405RxTx"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743A40C</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>1M</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">9330410</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743A9AD</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>1M</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">9330410</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743AA46</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>82k5</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">1170978</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743AC86</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>18k7</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">1170914</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743AD70</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>BATT_IN</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02</footprint>
+      <fields>
+        <field name="Farnell">BT06080</field>
+      </fields>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743B496</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SPST</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02</footprint>
+      <libsource lib="device" part="SPST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743B57B</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>10u</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2494233</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743B7D5</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>10u</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2494233</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743B8FD</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743C429</tstamp>
+    </comp>
+    <comp ref="RV4">
+      <value>10k A</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">1760787</field>
+      </fields>
+      <libsource lib="device" part="POT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743E430</tstamp>
+    </comp>
+    <comp ref="RV1">
+      <value>100k B</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">RE06791</field>
+      </fields>
+      <libsource lib="device" part="POT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743EDA7</tstamp>
+    </comp>
+    <comp ref="RV3">
+      <value>100k B</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">RE06791</field>
+      </fields>
+      <libsource lib="device" part="POT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743F03F</tstamp>
+    </comp>
+    <comp ref="RV2">
+      <value>100k B</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">RE06791</field>
+      </fields>
+      <libsource lib="device" part="POT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743F0D7</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>ENCODER</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">2065066</field>
+      </fields>
+      <libsource lib="conn" part="CONN_01X03"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743F9E1</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>100k</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2309107</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743FD0F</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>100k</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2309107</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5743FD88</tstamp>
+    </comp>
+    <comp ref="P6">
+      <value>ER-OLEDM023-1B</value>
+      <datasheet>http://www.buydisplay.com/default/2-2-inch-128x32-oled-dot-matrix-display-module-with-pcb-blue-on-black</datasheet>
+      <libsource lib="conn" part="CONN_01X20"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57442265</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574593F7</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>LM358</value>
+      <footprint>agg:SOIC-8</footprint>
+      <fields>
+        <field name="Farnell">2342291</field>
+      </fields>
+      <libsource lib="linear" part="LM358N"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574B7BD6</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>1k</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">9330380</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BD776</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>PMEG2005EH</value>
+      <footprint>dsp:SOD-123F</footprint>
+      <fields>
+        <field name="Farnell">1510671</field>
+      </fields>
+      <libsource lib="device" part="D"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BD853</tstamp>
+    </comp>
+    <comp ref="P4">
+      <value>SWD_TC</value>
+      <footprint>agg:TC2030-NL</footprint>
+      <libsource lib="swd_tc" part="SWD_TC"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574C76AC</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CAA41</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>4u7</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2496930</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CAAE2</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CAE59</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>1u</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524858</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CAEFE</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CB151</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CB207</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574CB2BA</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>IN</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">1217005</field>
+      </fields>
+      <libsource lib="conn" part="CONN_01X03"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D1566</tstamp>
+    </comp>
+    <comp ref="P5">
+      <value>OUT</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
+      <fields>
+        <field name="Farnell">1217005</field>
+      </fields>
+      <libsource lib="conn" part="CONN_01X03"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D1E04</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>2u2</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524865</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D2FA2</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>2u2</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524865</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D305E</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>NCP1117</value>
+      <footprint>TO_SOT_Packages_SMD:TO-252-2Lead</footprint>
+      <fields>
+        <field name="Farnell">1652364</field>
+      </fields>
+      <libsource lib="ncp1117" part="NCP1117"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D4108</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>ESP02</value>
+      <footprint>dsp:esp02</footprint>
+      <libsource lib="esp02" part="ESP02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D6194</tstamp>
+    </comp>
+    <comp ref="C15">
+      <value>22u</value>
+      <footprint>agg:1210</footprint>
+      <fields>
+        <field name="Farnell">2497179</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D6FEA</tstamp>
+    </comp>
+    <comp ref="C14">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574D7078</tstamp>
+    </comp>
+    <comp ref="P7">
+      <value>CONN_01X07</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x07</footprint>
+      <libsource lib="conn" part="CONN_01X07"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574B9170</tstamp>
+    </comp>
+    <comp ref="C16">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BD193</tstamp>
+    </comp>
+    <comp ref="C17">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BD64E</tstamp>
+    </comp>
+    <comp ref="C18">
+      <value>100n</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">2524817</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BD8B3</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>120R</value>
+      <footprint>agg:0603</footprint>
+      <fields>
+        <field name="Farnell">9330496</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BA24C</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>LED</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>574BA2F6</tstamp>
+    </comp>
+    <comp ref="X105">
+      <value>KNOB</value>
+      <fields>
+        <field name="Farnell">1441143</field>
+      </fields>
+      <libsource lib="part" part="PART"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5751E2B1</tstamp>
+    </comp>
+    <comp ref="X102">
+      <value>KNOB</value>
+      <fields>
+        <field name="Farnell">SW03049</field>
+      </fields>
+      <libsource lib="part" part="PART"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5751E5C1</tstamp>
+    </comp>
+    <comp ref="X104">
+      <value>KNOB</value>
+      <fields>
+        <field name="Farnell">SW03049</field>
+      </fields>
+      <libsource lib="part" part="PART"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5751E6AD</tstamp>
+    </comp>
+    <comp ref="X103">
+      <value>KNOB</value>
+      <fields>
+        <field name="Farnell">SW03049</field>
+      </fields>
+      <libsource lib="part" part="PART"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5751E793</tstamp>
+    </comp>
+    <comp ref="X101">
+      <value>KNOB</value>
+      <fields>
+        <field name="Farnell">SW03049</field>
+      </fields>
+      <libsource lib="part" part="PART"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5751EF62</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C?</fp>
+        <fp>C_????_*</fp>
+        <fp>C_????</fp>
+        <fp>SMD*_c</fp>
+        <fp>Capacitor*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X02">
+      <description>Connector 01x02</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X02</fp>
+        <fp>Pin_Header_Angled_1X02</fp>
+        <fp>Socket_Strip_Straight_1X02</fp>
+        <fp>Socket_Strip_Angled_1X02</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X03">
+      <description>Connector 01x03</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X03</fp>
+        <fp>Pin_Header_Angled_1X03</fp>
+        <fp>Socket_Strip_Straight_1X03</fp>
+        <fp>Socket_Strip_Angled_1X03</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X07">
+      <description>Connector 01x07</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X07</fp>
+        <fp>Pin_Header_Angled_1X07</fp>
+        <fp>Socket_Strip_Straight_1X07</fp>
+        <fp>Socket_Strip_Angled_1X07</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X07</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+        <pin num="7" name="P7" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X20">
+      <description>Connector 01x20</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X20</fp>
+        <fp>Pin_Header_Angled_1X20</fp>
+        <fp>Socket_Strip_Straight_1X20</fp>
+        <fp>Socket_Strip_Angled_1X20</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X20</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+        <pin num="7" name="P7" type="passive"/>
+        <pin num="8" name="P8" type="passive"/>
+        <pin num="9" name="P9" type="passive"/>
+        <pin num="10" name="P10" type="passive"/>
+        <pin num="11" name="P11" type="passive"/>
+        <pin num="12" name="P12" type="passive"/>
+        <pin num="13" name="P13" type="passive"/>
+        <pin num="14" name="P14" type="passive"/>
+        <pin num="15" name="P15" type="passive"/>
+        <pin num="16" name="P16" type="passive"/>
+        <pin num="17" name="P17" type="passive"/>
+        <pin num="18" name="P18" type="passive"/>
+        <pin num="19" name="P19" type="passive"/>
+        <pin num="20" name="P20" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C_Small">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C?</fp>
+        <fp>C_????_*</fp>
+        <fp>C_????</fp>
+        <fp>SMD*_c</fp>
+        <fp>Capacitor*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D">
+      <description>Diode</description>
+      <footprints>
+        <fp>Diode_*</fp>
+        <fp>D-Pak_TO252AA</fp>
+        <fp>*SingleDiode</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="esp02" part="ESP02">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ESP02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="RXD" type="input"/>
+        <pin num="3" name="TXD" type="output"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GPIO15" type="passive"/>
+        <pin num="6" name="GPIO0" type="passive"/>
+        <pin num="7" name="GPIO2" type="passive"/>
+        <pin num="8" name="RST" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <footprints>
+        <fp>LED-3MM</fp>
+        <fp>LED-5MM</fp>
+        <fp>LED-10MM</fp>
+        <fp>LED-0603</fp>
+        <fp>LED-0805</fp>
+        <fp>LED-1206</fp>
+        <fp>LEDV</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="linear" part="LM358">
+      <aliases>
+        <alias>LMC6062</alias>
+        <alias>LMC6082</alias>
+        <alias>LM358N</alias>
+        <alias>TL072</alias>
+        <alias>TL082</alias>
+      </aliases>
+      <description>Dual Op amp (low power)</description>
+      <docs>ns/lm158.pdf</docs>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM358</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="ncp1117" part="NCP1117">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">NCP1117</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="OUT" type="power_out"/>
+        <pin num="3" name="IN" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="part" part="PART">
+      <description>Generic placeholder part</description>
+      <fields>
+        <field name="Reference">X</field>
+        <field name="Value">PART</field>
+      </fields>
+    </libpart>
+    <libpart lib="device" part="POT">
+      <description>Potentionmetre</description>
+      <fields>
+        <field name="Reference">RV</field>
+        <field name="Value">POT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>Resistor_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="SPST">
+      <description>Interrupteur simple</description>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SPST</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="stm32f405rxtx" part="STM32F405RxTx">
+      <description>STM32F4 64 pin TQFP package</description>
+      <fields>
+        <field name="Reference">IC</field>
+        <field name="Value">STM32F405RxTx</field>
+        <field name="Footprint">agg:LQFP-64</field>
+        <field name="Datasheet">http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00037051.pdf</field>
+        <field name="Farnell">2064363</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBAT" type="power_in"/>
+        <pin num="2" name="PC13" type="BiDi"/>
+        <pin num="3" name="PC14" type="BiDi"/>
+        <pin num="4" name="PC15" type="BiDi"/>
+        <pin num="5" name="PH0" type="BiDi"/>
+        <pin num="6" name="PH1" type="BiDi"/>
+        <pin num="7" name="NRST" type="input"/>
+        <pin num="8" name="PC0" type="BiDi"/>
+        <pin num="9" name="PC1" type="BiDi"/>
+        <pin num="10" name="PC2" type="BiDi"/>
+        <pin num="11" name="PC3" type="BiDi"/>
+        <pin num="12" name="VSSA" type="power_in"/>
+        <pin num="13" name="VDDA" type="power_in"/>
+        <pin num="14" name="PA0" type="BiDi"/>
+        <pin num="15" name="PA1" type="BiDi"/>
+        <pin num="16" name="PA2" type="BiDi"/>
+        <pin num="17" name="PA3" type="BiDi"/>
+        <pin num="18" name="VSS" type="power_in"/>
+        <pin num="19" name="VDD" type="power_in"/>
+        <pin num="20" name="PA4" type="BiDi"/>
+        <pin num="21" name="PA5" type="BiDi"/>
+        <pin num="22" name="PA6" type="BiDi"/>
+        <pin num="23" name="PA7" type="BiDi"/>
+        <pin num="24" name="PC4" type="BiDi"/>
+        <pin num="25" name="PC5" type="BiDi"/>
+        <pin num="26" name="PB0" type="BiDi"/>
+        <pin num="27" name="PB1" type="BiDi"/>
+        <pin num="28" name="PB2" type="BiDi"/>
+        <pin num="29" name="PB10" type="BiDi"/>
+        <pin num="30" name="PB11" type="BiDi"/>
+        <pin num="31" name="VCAP_1" type="passive"/>
+        <pin num="32" name="VDD" type="power_in"/>
+        <pin num="33" name="PB12" type="BiDi"/>
+        <pin num="34" name="PB13" type="BiDi"/>
+        <pin num="35" name="PB14" type="BiDi"/>
+        <pin num="36" name="PB15" type="BiDi"/>
+        <pin num="37" name="PC6" type="BiDi"/>
+        <pin num="38" name="PC7" type="BiDi"/>
+        <pin num="39" name="PC8" type="BiDi"/>
+        <pin num="40" name="PC9" type="BiDi"/>
+        <pin num="41" name="PA8" type="BiDi"/>
+        <pin num="42" name="PA9" type="BiDi"/>
+        <pin num="43" name="PA10" type="BiDi"/>
+        <pin num="44" name="PA11" type="BiDi"/>
+        <pin num="45" name="PA12" type="BiDi"/>
+        <pin num="46" name="PA13" type="BiDi"/>
+        <pin num="47" name="VCAP_2" type="passive"/>
+        <pin num="48" name="VDD" type="power_in"/>
+        <pin num="49" name="PA14" type="BiDi"/>
+        <pin num="50" name="PA15" type="BiDi"/>
+        <pin num="51" name="PC10" type="BiDi"/>
+        <pin num="52" name="PC11" type="BiDi"/>
+        <pin num="53" name="PC12" type="BiDi"/>
+        <pin num="54" name="PD2" type="BiDi"/>
+        <pin num="55" name="PB3" type="BiDi"/>
+        <pin num="56" name="PB4" type="BiDi"/>
+        <pin num="57" name="PB5" type="BiDi"/>
+        <pin num="58" name="PB6" type="BiDi"/>
+        <pin num="59" name="PB7" type="BiDi"/>
+        <pin num="60" name="BOOT0" type="input"/>
+        <pin num="61" name="PB8" type="BiDi"/>
+        <pin num="62" name="PB9" type="BiDi"/>
+        <pin num="63" name="VSS" type="power_in"/>
+        <pin num="64" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="swd_tc" part="SWD_TC">
+      <description>SWD TagConnect</description>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">SWD_TC</field>
+        <field name="Footprint">agg:TC2030-NL</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="SWDIO" type="BiDi"/>
+        <pin num="3" name="~RST" type="output"/>
+        <pin num="4" name="SWDCLK" type="output"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="SWO" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="conn">
+      <uri>/usr/share/kicad/library/conn.lib</uri>
+    </library>
+    <library logical="linear">
+      <uri>/usr/share/kicad/library/linear.lib</uri>
+    </library>
+    <library logical="stm32f405rxtx">
+      <uri>/auto/homes/dwt27/git/blueboxes/agg-kicad/lib/ic/microcontroller/stm32f405rxtx.lib</uri>
+    </library>
+    <library logical="swd_tc">
+      <uri>/auto/homes/dwt27/git/blueboxes/agg-kicad/lib/connector/swd_tc.lib</uri>
+    </library>
+    <library logical="ncp1117">
+      <uri>/auto/homes/dwt27/git/blueboxes/dsp/ncp1117.lib</uri>
+    </library>
+    <library logical="esp02">
+      <uri>/auto/homes/dwt27/git/blueboxes/dsp/esp02.lib</uri>
+    </library>
+    <library logical="part">
+      <uri>/auto/homes/dwt27/git/blueboxes/agg-kicad/lib/misc/part.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="VSS">
+      <node ref="C10" pin="2"/>
+      <node ref="P6" pin="20"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U2" pin="4"/>
+      <node ref="P6" pin="17"/>
+      <node ref="C16" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C18" pin="2"/>
+      <node ref="C14" pin="2"/>
+      <node ref="IC1" pin="12"/>
+      <node ref="C15" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="D2" pin="1"/>
+      <node ref="IC1" pin="60"/>
+      <node ref="P6" pin="18"/>
+      <node ref="U3" pin="1"/>
+      <node ref="IC1" pin="63"/>
+      <node ref="IC1" pin="18"/>
+      <node ref="C17" pin="2"/>
+      <node ref="P7" pin="1"/>
+      <node ref="C11" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="C7" pin="2"/>
+      <node ref="P2" pin="1"/>
+      <node ref="P6" pin="1"/>
+      <node ref="C13" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="C4" pin="2"/>
+      <node ref="RV3" pin="3"/>
+      <node ref="RV1" pin="3"/>
+      <node ref="RV2" pin="3"/>
+      <node ref="C12" pin="2"/>
+      <node ref="P4" pin="5"/>
+      <node ref="P3" pin="2"/>
+      <node ref="U1" pin="1"/>
+      <node ref="C9" pin="2"/>
+      <node ref="C5" pin="2"/>
+    </net>
+    <net code="2" name="+3V3">
+      <node ref="U3" pin="4"/>
+      <node ref="U1" pin="2"/>
+      <node ref="C2" pin="1"/>
+      <node ref="C16" pin="1"/>
+      <node ref="C7" pin="1"/>
+      <node ref="IC1" pin="19"/>
+      <node ref="C11" pin="1"/>
+      <node ref="C10" pin="1"/>
+      <node ref="C8" pin="1"/>
+      <node ref="C6" pin="1"/>
+      <node ref="D1" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="C9" pin="1"/>
+      <node ref="R8" pin="1"/>
+      <node ref="R7" pin="1"/>
+      <node ref="P6" pin="2"/>
+      <node ref="P4" pin="1"/>
+      <node ref="IC1" pin="1"/>
+      <node ref="R6" pin="1"/>
+      <node ref="C14" pin="1"/>
+      <node ref="P7" pin="2"/>
+      <node ref="IC1" pin="48"/>
+      <node ref="IC1" pin="64"/>
+      <node ref="RV2" pin="1"/>
+      <node ref="C15" pin="1"/>
+      <node ref="RV3" pin="1"/>
+      <node ref="RV1" pin="1"/>
+      <node ref="IC1" pin="32"/>
+      <node ref="IC1" pin="13"/>
+    </net>
+    <net code="3" name="Net-(P4-Pad6)">
+      <node ref="P4" pin="6"/>
+    </net>
+    <net code="4" name="/nRST">
+      <node ref="IC1" pin="7"/>
+      <node ref="C4" pin="1"/>
+      <node ref="P4" pin="3"/>
+    </net>
+    <net code="5" name="/SWDIO">
+      <node ref="IC1" pin="46"/>
+      <node ref="P4" pin="2"/>
+    </net>
+    <net code="6" name="/INST_IN">
+      <node ref="IC1" pin="8"/>
+      <node ref="R5" pin="1"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="7" name="Net-(R4-Pad1)">
+      <node ref="R5" pin="2"/>
+      <node ref="R4" pin="1"/>
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="8" name="VDD">
+      <node ref="U2" pin="8"/>
+      <node ref="C17" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="9" name="GND">
+      <node ref="C18" pin="1"/>
+      <node ref="RV4" pin="3"/>
+      <node ref="U2" pin="6"/>
+      <node ref="U2" pin="7"/>
+      <node ref="U2" pin="3"/>
+      <node ref="P5" pin="1"/>
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="10" name="/LCD_RESET">
+      <node ref="IC1" pin="37"/>
+      <node ref="P7" pin="7"/>
+      <node ref="P6" pin="16"/>
+    </net>
+    <net code="11" name="/LCD_MOSI">
+      <node ref="P6" pin="8"/>
+      <node ref="P7" pin="5"/>
+      <node ref="IC1" pin="36"/>
+    </net>
+    <net code="12" name="/LCD_SCK">
+      <node ref="IC1" pin="34"/>
+      <node ref="P6" pin="7"/>
+      <node ref="P7" pin="4"/>
+    </net>
+    <net code="13" name="Net-(D2-Pad2)">
+      <node ref="D2" pin="2"/>
+      <node ref="R8" pin="2"/>
+    </net>
+    <net code="14" name="Net-(C12-Pad1)">
+      <node ref="IC1" pin="31"/>
+      <node ref="C12" pin="1"/>
+    </net>
+    <net code="15" name="Net-(P5-Pad2)">
+      <node ref="P5" pin="2"/>
+      <node ref="P5" pin="3"/>
+      <node ref="RV4" pin="2"/>
+    </net>
+    <net code="16" name="Net-(P1-Pad2)">
+      <node ref="R1" pin="1"/>
+      <node ref="P1" pin="2"/>
+      <node ref="P1" pin="3"/>
+    </net>
+    <net code="17" name="Net-(C13-Pad1)">
+      <node ref="C13" pin="1"/>
+      <node ref="IC1" pin="47"/>
+    </net>
+    <net code="18" name="/ESP_RX">
+      <node ref="IC1" pin="58"/>
+      <node ref="U3" pin="2"/>
+    </net>
+    <net code="19" name="Net-(U3-Pad7)">
+      <node ref="U3" pin="7"/>
+    </net>
+    <net code="20" name="Net-(U3-Pad6)">
+      <node ref="U3" pin="6"/>
+    </net>
+    <net code="21" name="Net-(U3-Pad5)">
+      <node ref="U3" pin="5"/>
+    </net>
+    <net code="22" name="/ESP_RST">
+      <node ref="U3" pin="8"/>
+      <node ref="IC1" pin="57"/>
+    </net>
+    <net code="23" name="/ESP_TX">
+      <node ref="IC1" pin="59"/>
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="24" name="Net-(C3-Pad1)">
+      <node ref="R3" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="U2" pin="5"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="25" name="Net-(R1-Pad2)">
+      <node ref="U2" pin="2"/>
+      <node ref="R4" pin="2"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="26" name="/SWDCLK">
+      <node ref="IC1" pin="49"/>
+      <node ref="P4" pin="4"/>
+    </net>
+    <net code="27" name="Net-(IC1-Pad39)">
+      <node ref="IC1" pin="39"/>
+    </net>
+    <net code="28" name="Net-(IC1-Pad29)">
+      <node ref="IC1" pin="29"/>
+    </net>
+    <net code="29" name="Net-(P2-Pad2)">
+      <node ref="SW1" pin="1"/>
+      <node ref="P2" pin="2"/>
+    </net>
+    <net code="30" name="Net-(IC1-Pad23)">
+      <node ref="IC1" pin="23"/>
+    </net>
+    <net code="31" name="Net-(IC1-Pad62)">
+      <node ref="IC1" pin="62"/>
+    </net>
+    <net code="32" name="Net-(IC1-Pad52)">
+      <node ref="IC1" pin="52"/>
+    </net>
+    <net code="33" name="Net-(IC1-Pad42)">
+      <node ref="IC1" pin="42"/>
+    </net>
+    <net code="34" name="Net-(IC1-Pad22)">
+      <node ref="IC1" pin="22"/>
+    </net>
+    <net code="35" name="Net-(IC1-Pad61)">
+      <node ref="IC1" pin="61"/>
+    </net>
+    <net code="36" name="Net-(IC1-Pad51)">
+      <node ref="IC1" pin="51"/>
+    </net>
+    <net code="37" name="Net-(IC1-Pad41)">
+      <node ref="IC1" pin="41"/>
+    </net>
+    <net code="38" name="/FX_2">
+      <node ref="IC1" pin="21"/>
+      <node ref="RV2" pin="2"/>
+    </net>
+    <net code="39" name="Net-(IC1-Pad11)">
+      <node ref="IC1" pin="11"/>
+    </net>
+    <net code="40" name="Net-(IC1-Pad50)">
+      <node ref="IC1" pin="50"/>
+    </net>
+    <net code="41" name="Net-(IC1-Pad40)">
+      <node ref="IC1" pin="40"/>
+    </net>
+    <net code="42" name="Net-(IC1-Pad30)">
+      <node ref="IC1" pin="30"/>
+    </net>
+    <net code="43" name="/INST_OUT">
+      <node ref="IC1" pin="20"/>
+      <node ref="RV4" pin="1"/>
+    </net>
+    <net code="44" name="Net-(IC1-Pad10)">
+      <node ref="IC1" pin="10"/>
+    </net>
+    <net code="45" name="Net-(IC1-Pad9)">
+      <node ref="IC1" pin="9"/>
+    </net>
+    <net code="46" name="Net-(IC1-Pad6)">
+      <node ref="IC1" pin="6"/>
+    </net>
+    <net code="47" name="Net-(IC1-Pad5)">
+      <node ref="IC1" pin="5"/>
+    </net>
+    <net code="48" name="Net-(IC1-Pad4)">
+      <node ref="IC1" pin="4"/>
+    </net>
+    <net code="49" name="Net-(IC1-Pad3)">
+      <node ref="IC1" pin="3"/>
+    </net>
+    <net code="50" name="Net-(IC1-Pad2)">
+      <node ref="IC1" pin="2"/>
+    </net>
+    <net code="51" name="Net-(IC1-Pad55)">
+      <node ref="IC1" pin="55"/>
+    </net>
+    <net code="52" name="/LCD_DC">
+      <node ref="P7" pin="3"/>
+      <node ref="IC1" pin="38"/>
+      <node ref="P6" pin="4"/>
+    </net>
+    <net code="53" name="Net-(IC1-Pad28)">
+      <node ref="IC1" pin="28"/>
+    </net>
+    <net code="54" name="Net-(IC1-Pad27)">
+      <node ref="IC1" pin="27"/>
+    </net>
+    <net code="55" name="/FX_3">
+      <node ref="IC1" pin="17"/>
+      <node ref="RV3" pin="2"/>
+    </net>
+    <net code="56" name="Net-(IC1-Pad56)">
+      <node ref="IC1" pin="56"/>
+    </net>
+    <net code="57" name="Net-(IC1-Pad26)">
+      <node ref="IC1" pin="26"/>
+    </net>
+    <net code="58" name="/FX_1">
+      <node ref="RV1" pin="2"/>
+      <node ref="IC1" pin="16"/>
+    </net>
+    <net code="59" name="Net-(IC1-Pad45)">
+      <node ref="IC1" pin="45"/>
+    </net>
+    <net code="60" name="Net-(IC1-Pad35)">
+      <node ref="IC1" pin="35"/>
+    </net>
+    <net code="61" name="Net-(IC1-Pad25)">
+      <node ref="IC1" pin="25"/>
+    </net>
+    <net code="62" name="/FX_SEL_B">
+      <node ref="R7" pin="2"/>
+      <node ref="P3" pin="1"/>
+      <node ref="IC1" pin="15"/>
+    </net>
+    <net code="63" name="Net-(IC1-Pad54)">
+      <node ref="IC1" pin="54"/>
+    </net>
+    <net code="64" name="Net-(IC1-Pad44)">
+      <node ref="IC1" pin="44"/>
+    </net>
+    <net code="65" name="Net-(IC1-Pad24)">
+      <node ref="IC1" pin="24"/>
+    </net>
+    <net code="66" name="/FX_SEL_A">
+      <node ref="R6" pin="2"/>
+      <node ref="IC1" pin="14"/>
+      <node ref="P3" pin="3"/>
+    </net>
+    <net code="67" name="Net-(IC1-Pad53)">
+      <node ref="IC1" pin="53"/>
+    </net>
+    <net code="68" name="Net-(IC1-Pad43)">
+      <node ref="IC1" pin="43"/>
+    </net>
+    <net code="69" name="Net-(P6-Pad19)">
+      <node ref="P6" pin="19"/>
+    </net>
+    <net code="70" name="Net-(P6-Pad3)">
+      <node ref="P6" pin="3"/>
+    </net>
+    <net code="71" name="/LCD_CS">
+      <node ref="IC1" pin="33"/>
+      <node ref="P7" pin="6"/>
+      <node ref="P6" pin="15"/>
+    </net>
+    <net code="72" name="Net-(P6-Pad14)">
+      <node ref="P6" pin="14"/>
+    </net>
+    <net code="73" name="Net-(P6-Pad13)">
+      <node ref="P6" pin="13"/>
+    </net>
+    <net code="74" name="Net-(P6-Pad12)">
+      <node ref="P6" pin="12"/>
+    </net>
+    <net code="75" name="Net-(P6-Pad11)">
+      <node ref="P6" pin="11"/>
+    </net>
+    <net code="76" name="Net-(P6-Pad10)">
+      <node ref="P6" pin="10"/>
+    </net>
+    <net code="77" name="Net-(P6-Pad9)">
+      <node ref="P6" pin="9"/>
+    </net>
+    <net code="78" name="Net-(P6-Pad6)">
+      <node ref="P6" pin="6"/>
+    </net>
+    <net code="79" name="Net-(P6-Pad5)">
+      <node ref="P6" pin="5"/>
+    </net>
+  </nets>
+</export>

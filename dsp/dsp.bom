@@ -1,0 +1,87 @@
+Bill Of Materials
+=================
+
+Source file: dsp.xml
+Date: 2016-06-03T17:21:58.773507
+
+Parts Missing Footprints
+------------------------
+P6     ER-OLEDM023-1B 
+X105   KNOB           
+X102   KNOB           
+X104   KNOB           
+X103   KNOB           
+X101   KNOB           
+
+Parts Missing Order Codes
+-------------------------
+SW1    SPST            Pin_Headers:Pin_Header_Straight_1x02
+P6     ER-OLEDM023-1B  None
+P4     SWD_TC          agg:TC2030-NL
+U3     ESP02           dsp:esp02
+P7     CONN_01X07      Pin_Headers:Pin_Header_Straight_1x07
+D2     LED             Pin_Headers:Pin_Header_Straight_1x02
+
+Inconsistent Order Codes
+------------------------
+  Farnell
+  ~~~~~~~
+    1217005: 
+      P1     IN              Pin_Headers:Pin_Header_Straight_1x03
+      P5     OUT             Pin_Headers:Pin_Header_Straight_1x03
+
+Vendor Specific BOMs
+--------------------
+  Farnell
+  ~~~~~~~
+2065066,1,1x ENCODER Pin_Header_Straight
+1170978,1,1x 82k5 0603
+1170914,1,1x 18k7 0603
+9330496,1,1x 120R 0603
+2496930,1,1x 4u7 0603
+2524817,11,11x 100n 0603
+1760787,1,1x 10k A Pin_Header_Straight_1
+2524858,1,1x 1u 0603
+2497179,1,1x 22u 1210
+BT06080,1,1x BATT_IN Pin_Header_Straight
+SW03049,4,4x KNOB None
+2064363,1,1x STM32F405RxTx LQFP-64
+2309107,2,2x 100k 0603
+1217005,2,2x OUT IN Pin_Header_Straight_
+9330410,2,2x 1M 0603
+2494233,2,2x 10u 0603
+2342291,1,1x LM358 SOIC-8
+9330380,1,1x 1k 0603
+1510671,1,1x PMEG2005EH SOD-123F
+1652364,1,1x NCP1117 TO-252-2Lead
+2524865,2,2x 2u2 0603
+RE06791,3,3x 100k B Pin_Header_Straight_
+1441143,1,1x KNOB None
+
+
+Assembly BOM
+------------
+2065066              1   ENCODER         Pin_Header_Straight_1x03 P3
+1170978              1   82k5            0603            R2
+1170914              1   18k7            0603            R3
+9330496              1   120R            0603            R8
+2496930              1   4u7             0603            C5
+2524817              11  100n            0603            C10 C11 C14 C16 C17 C18 C3 C4 C7 C8 C9
+1760787              1   10k A           Pin_Header_Straight_1x03 RV4
+2524858              1   1u              0603            C6
+2497179              1   22u             1210            C15
+BT06080              1   BATT_IN         Pin_Header_Straight_1x02 P2
+SW03049              4   KNOB            None            X101 X102 X103 X104
+2064363              1   STM32F405RxTx   LQFP-64         IC1
+2309107              2   100k            0603            R6 R7
+1217005              2   OUT,IN          Pin_Header_Straight_1x03 P1 P5
+9330410              2   1M              0603            R1 R4
+2494233              2   10u             0603            C1 C2
+2342291              1   LM358           SOIC-8          U2
+9330380              1   1k              0603            R5
+1510671              1   PMEG2005EH      SOD-123F        D1
+1652364              1   NCP1117         TO-252-2Lead    U1
+2524865              2   2u2             0603            C12 C13
+RE06791              3   100k B          Pin_Header_Straight_1x03 RV1 RV2 RV3
+1441143              1   KNOB            None            X105
+
