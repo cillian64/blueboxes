@@ -1,0 +1,15 @@
+######### TIMERS ##############
+TIM2 is reserved for ST LLD
+ADC can trigger off: TIM2, TIM3, TIM8
+Encoder is hooked into TIM2 and TIM5
+DAC can trigger off: TIM6 TIM8 TIM7 TIM5 TIM2 TIM4
+
+So run encoder on TIM5
+Run ADC on TIM3 (fx) and TIM8 (inst)
+Run DAC off TIM8 (shared with inst ADC)
+
+######### ADCs #############
+Use ADC1 and ADC2 for inst and fx respectively
+
+######### DACs #############
+Use DAC1

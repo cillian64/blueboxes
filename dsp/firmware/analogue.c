@@ -16,22 +16,25 @@
 #define FX_1_CHN    ADC_CHANNEL_IN2
 #define FX_2_CHN    ADC_CHANNEL_IN5
 #define FX_3_CHN    ADC_CHANNEL_IN3
-
+/****************** Callback Declarations ******************************/
 static void adc_inst_callback(ADCDriver*, adcsample_t*, size_t n);
 static void adc_fx_callback(ADCDriver*, adcsample_t*, size_t n);
 static void adc_error_callback(ADCDriver*, adcerror_t);
+static void dac_end_callback(DACDriver*, const dacsample_t*, size_t);
+static void dac_error_callback(DACDriver*, dacerror_t);
 
-/* Allocate arrays with the sample data from ADCs */
-/* Arrays for storing captured samples */
+/****************** Sample Buffers *************************************/
 static volatile adcsample_t inst_samples[INST_BUF_DEPTH];
 static volatile adcsample_t fx_samples[FX_BUF_DEPTH];
+static volatile dacsample_t dac_samples[INST_BUF_DEPTH];
 
-/* Semaphores used to indicate conversion completion */
+/****************** Semaphores *****************************************/
+/* (Used to indicate conversion completion) */
 static binary_semaphore_t bsAnalogueInst;
 static binary_semaphore_t bsAnalogueFX;
 
-// GPT object = timer configuration
-// gpt used to trigger inst input conversions:
+/****************** Configuration Structures ***************************/
+/* Timer used to trigger inst ADC captures */
 static const GPTConfig gpt_inst_config =
 {
      44000,             // clock: 44kHz
@@ -40,7 +43,7 @@ static const GPTConfig gpt_inst_config =
      0                  // DIER
 };
 
-// gpt used to trigger FX input conversions:
+/* Timer used to trigger FX ADC captures */
 static const GPTConfig gpt_fx_config =
 {
      1000,              // clock: 1kHz
@@ -49,16 +52,15 @@ static const GPTConfig gpt_fx_config =
      0                  // DIER
 };
 
-/* Instrument conversion group for ADC1. Continuous, INST_BUF_DEPTH
- * Channels: INST_IN_CHN */
+/* Instrument conversion group */
 static const ADCConversionGroup adc_con_group_1 = {
     TRUE, /* circular mode */
     1, /* number of channels in this con_group */
     adc_inst_callback,
     adc_error_callback,
     0, /* ADC_CR1 */
-    /* cr2: Clock the ADC to timer 3 TRGO event*/
-    ADC_CR2_EXTSEL_SRC(8) | ADC_CR2_EXTEN_0,
+    /* cr2: Clock the ADC to timer 8 TRGO event*/
+    ADC_CR2_EXTSEL_SRC(14) | ADC_CR2_EXTEN_0,
     /* smpr1+2: set all channels to 40 cycles per conversion (28+12) */
     ADC_SMPR1_SMP_AN11(2)| ADC_SMPR1_SMP_AN12(2)| ADC_SMPR1_SMP_AN13(2),
     ADC_SMPR2_SMP_AN0(2) | ADC_SMPR2_SMP_AN1(2) | ADC_SMPR2_SMP_AN2(2),
@@ -68,8 +70,7 @@ static const ADCConversionGroup adc_con_group_1 = {
     ADC_SQR3_SQ1_N(INST_IN_CHN)
 };
 
-/* FX inputs conversion group for ADC2.  Continuous, FX_BUF_DEPTH
- * Channels: FX_1_CHN, FX_2_CHN, FX_3_CHN */
+/* FX inputs conversion group */
 static const ADCConversionGroup adc_con_group_2 = {
     TRUE, /* circular mode */
     3, /* number of channels in this con group */
@@ -88,6 +89,21 @@ static const ADCConversionGroup adc_con_group_2 = {
         ADC_SQR3_SQ3_N(FX_3_CHN)
 };
 
+/* DAC config for DAC1 */
+static const DACConfig dac_cfg = {
+    .init     = 0,
+    .datamode = DAC_DHRM_12BIT_RIGHT,
+};
+
+/* DAC output conversion group */
+static const DACConversionGroup dac_conv_grp = {
+    .num_channels = 1U,
+    .end_cb       = dac_end_callback,
+    .error_cb     = dac_error_callback,
+    .trigger      = DAC_TRG(1), // Trigger off TIM8 TRGO
+};
+
+/****************** Callback Definitions *******************************/
 /* Called upon inst ADC DMA buffer filling up. */
 static void adc_inst_callback(ADCDriver *adc_driver_ptr, adcsample_t *buffer, size_t n) {
     (void)adc_driver_ptr;
@@ -108,16 +124,33 @@ static void adc_fx_callback(ADCDriver *adc_driver_ptr, adcsample_t *buffer, size
     chSysUnlockFromISR();
 }
 
-/*
- * adc_error_callback is called if there is an error during conversion
- */
+/* adc_error_callback is called if there is an error during conversion */
 static void adc_error_callback(ADCDriver *adc_driver_ptr, adcerror_t err) {
     (void)adc_driver_ptr;
     (void)err;
+    chSysHalt("Panic: ADC Error.");
     while(1);
-    /* TODO: Something... */
 }
 
+/* Called at end of DAC buffer conversion */
+static void dac_end_callback(DACDriver *dacp, const dacsample_t *buf, size_t n)
+{
+    /* I dunno, something? TODO */
+    (void)dacp;
+    (void)buf;
+    (void)n;
+}
+
+/* Called upon DAC error */
+static void dac_error_callback(DACDriver* dacp, dacerror_t err)
+{
+    (void)dacp;
+    (void)err;
+    chSysHalt("Panic: DAC Error.");
+    while(1);
+}
+
+/****************** Thread main loop ***********************************/
 msg_t analogue_thread(void *args)
 {
     (void)args;
@@ -127,15 +160,19 @@ msg_t analogue_thread(void *args)
     chBSemObjectInit(&bsAnalogueFX, true);
 
     adcInit();
+    dacInit();
     adcStart(&ADCD1, NULL);
     adcStart(&ADCD2, NULL);
+    dacStart(&DACD1, &dac_cfg);
     gptStart(&GPTD3, &gpt_inst_config);
     gptStart(&GPTD8, &gpt_fx_config);
 
-    adcStartConversion(&ADCD1, &adc_con_group_1, (adcsample_t *)inst_samples,
+    adcStartConversion(&ADCD1, &adc_con_group_1, (adcsample_t*)inst_samples,
                        INST_BUF_DEPTH);
-    adcStartConversion(&ADCD2, &adc_con_group_2, (adcsample_t *)fx_samples,
+    adcStartConversion(&ADCD2, &adc_con_group_2, (adcsample_t*)fx_samples,
                        FX_BUF_DEPTH);
+    dacStartConversion(&DACD1, &dac_conv_grp, (dacsample_t*)dac_samples,
+                       INST_BUF_DEPTH);
 
     /*
     * Start the GPT timer
