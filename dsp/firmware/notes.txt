@@ -13,3 +13,7 @@ Use ADC1 and ADC2 for inst and fx respectively
 
 ######### DACs #############
 Use DAC1
+
+######### Samples ############
+Both ADC and DACs should be using right-aligned 12-bit samples in 16-bit
+registers.
