@@ -124,14 +124,6 @@ static void adc_fx_callback(ADCDriver *adc_driver_ptr, adcsample_t *buffer, size
     chSysUnlockFromISR();
 }
 
-/* adc_error_callback is called if there is an error during conversion */
-static void adc_error_callback(ADCDriver *adc_driver_ptr, adcerror_t err) {
-    (void)adc_driver_ptr;
-    (void)err;
-    chSysHalt("Panic: ADC Error.");
-    while(1);
-}
-
 /* Called at end of DAC buffer conversion */
 static void dac_end_callback(DACDriver *dacp, const dacsample_t *buf, size_t n)
 {
@@ -139,6 +131,14 @@ static void dac_end_callback(DACDriver *dacp, const dacsample_t *buf, size_t n)
     (void)dacp;
     (void)buf;
     (void)n;
+}
+
+/* adc_error_callback is called if there is an error during conversion */
+static void adc_error_callback(ADCDriver *adc_driver_ptr, adcerror_t err) {
+    (void)adc_driver_ptr;
+    (void)err;
+    chSysHalt("Panic: ADC Error.");
+    while(1);
 }
 
 /* Called upon DAC error */
@@ -160,29 +160,31 @@ msg_t analogue_thread(void *args)
     chBSemObjectInit(&bsAnalogueFX, true);
 
     adcInit();
-    dacInit();
     adcStart(&ADCD1, NULL);
     adcStart(&ADCD2, NULL);
-    dacStart(&DACD1, &dac_cfg);
-    gptStart(&GPTD3, &gpt_inst_config);
-    gptStart(&GPTD8, &gpt_fx_config);
-
     adcStartConversion(&ADCD1, &adc_con_group_1, (adcsample_t*)inst_samples,
                        INST_BUF_DEPTH);
     adcStartConversion(&ADCD2, &adc_con_group_2, (adcsample_t*)fx_samples,
                        FX_BUF_DEPTH);
+
+    dacInit();
+    dacStart(&DACD1, &dac_cfg);
     dacStartConversion(&DACD1, &dac_conv_grp, (dacsample_t*)dac_samples,
                        INST_BUF_DEPTH);
+    // Enable DAC output buffer:
+    DACD1.params->dac->CR |= DAC_CR_BOFF1;
 
-    /*
-    * Start the GPT timer
-    * Timer is clocked at 40kHz and reloaded when it reaches 1.
-    * We manually set master mode to UPDATE to generate TRGO on updates.
-    * We manually disable the update interrupt as we're not using it.
-    */
+    /* Start the GPT timers. They reload at after reaching 1 such that
+     * TRGO frequency equals timer frequency. */
+    gptStart(&GPTD3, &gpt_inst_config);
     GPTD3.tim->CR2 |= STM32_TIM_CR2_MMS(2);
     gptStartContinuous(&GPTD3, 2);
     GPTD3.tim->DIER &= ~STM32_TIM_DIER_UIE;
+
+    gptStart(&GPTD8, &gpt_fx_config);
+    GPTD8.tim->CR2 |= STM32_TIM_CR2_MMS(2);
+    gptStartContinuous(&GPTD8, 2);
+    GPTD8.tim->DIER &= ~STM32_TIM_DIER_UIE;
 
     /* Wait until the ADC callback boops the semaphore. */
     while(true) {
