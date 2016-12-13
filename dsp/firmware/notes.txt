@@ -17,3 +17,15 @@ Use DAC1
 ######### Samples ############
 Both ADC and DACs should be using right-aligned 12-bit samples in 16-bit
 registers.
+
+########## Buffers ###########
+For the instrument DSP we need three buffers: ADC, crunch, DAC
+At any time, the ADC buffer is being overwritten by the ADC and the DAC buffer
+is being read by by the DAC.  Meanwhile we can perform effects in-place on the
+crunch buffer.
+
+When our callback fires the ADC/DAC are at the end of their buffers and we need
+to rotate: we copy the contents of the crunch buffer to the DAC buffer and the
+ADC buffer to the crunch buffer.  We either need to do both of these copies
+quickly enough to be finished before the next ADC/DAC samples, or just rotate
+the buffer pointers instead of the contents.
