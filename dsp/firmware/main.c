@@ -17,46 +17,30 @@
 #include "ch.h"
 #include "hal.h"
 #include "ch_test.h"
+#include "oled.h"
 
-/*
- * This is a periodic thread that does absolutely nothing except flashing
- * a LED.
- */
+// Blink thread.
 static THD_WORKING_AREA(waThread1, 128);
 static THD_FUNCTION(Thread1, arg) {
-
-  (void)arg;
-  chRegSetThreadName("blinker");
-  while (true) {
-  }
+    (void)arg;
+    chRegSetThreadName("blinker");
+    while (true);
 }
 
-/*
- * Application entry point.
- */
 int main(void) {
+    halInit();
+    chSysInit();
 
-  /*
-   * System initializations.
-   * - HAL initialization, this also initializes the configured device drivers
-   *   and performs the board-specific initializations.
-   * - Kernel initialization, the main() function becomes a thread and the
-   *   RTOS is active.
-   */
-  halInit();
-  chSysInit();
+    oled_init();
+    oled_erase();
+    oled_text_small(0, 0, "badger badger badger*");
+    oled_text_small(1, 0, "more badgers");
+    oled_text_small(2, 0, "mushroom??");
+    oled_text_small(3, 0, "snaaaaaake!");
+    oled_draw();
 
-
-  /*
-   * Creates the example thread.
-   */
-  chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
-
-  /*
-   * Normal main() thread activity, in this demo it does nothing except
-   * sleeping in a loop and check the button state.
-   */
-  while (true) {
-    chThdSleepMilliseconds(500);
-  }
+    while (true) {
+        oled_draw();
+        chThdSleepMilliseconds(1000);
+    }
 }

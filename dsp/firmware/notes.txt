@@ -29,3 +29,6 @@ to rotate: we copy the contents of the crunch buffer to the DAC buffer and the
 ADC buffer to the crunch buffer.  We either need to do both of these copies
 quickly enough to be finished before the next ADC/DAC samples, or just rotate
 the buffer pointers instead of the contents.
+
+####### Peripherals ########
+OLED is on SPI2
