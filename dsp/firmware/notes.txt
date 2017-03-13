@@ -32,3 +32,53 @@ the buffer pointers instead of the contents.
 
 ####### Peripherals ########
 OLED is on SPI2
+
+Start:
+    ADC target buf1
+    ADC double buffer on
+    ADC DMA_SxM1AR target buf3
+    DAC target buf3
+    DAC double buffer on
+    DAC DMA_SxM1AR target buf2
+    state=1
+
+
+1.... ADC: buf1, DSP: buf2, DAC: buf3
+2.... DSP: buf1, DAC: buf2, ADC: buf3
+3.... DAC: buf1, ADC: buf2, DSP: buf3
+
+ADC1.dmastp
+DACD1.params->dma
+
+
+######## Special Filters ###########
+Chromatic tuner???
+Report clipping on input/output
+Synthesizer
+
+######## FIR filters ##############
+Cascading is convolving in time, which is multiplication in Fourier/Laplace
+The frequency response of an FIR filter is the Fourier transform of its
+coefficients (which directly describe its impulse response).  So to combine
+filters we must convolve their impulse responses (coefficients).
+
+######## Simple State Filters ############
+Compressor: Floor, ceil, rate (state: current gain)
+
+######## Stateless Filters ###########
+Clip (level, slope, symmetry)
+
+############ Filters ###############
+Let each filter have (up to) 3 parameters
+
+Distortion: Level, tone, wet/dry
+HP/LP: Hi/Lo, frequency, slope
+Delay: Delay, decay, level
+Reverb: Decay, level
+Envelope filter: threshold, attack
+Muff: Tone, sustain, level
+Fuzz: Level, fuzz
+Octave: Wet, decay
+Chorus???
+
+

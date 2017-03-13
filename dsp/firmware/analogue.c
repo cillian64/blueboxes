@@ -24,14 +24,17 @@ static void dac_end_callback(DACDriver*, const dacsample_t*, size_t);
 static void dac_error_callback(DACDriver*, dacerror_t);
 
 /****************** Sample Buffers *************************************/
-static volatile adcsample_t inst_samples[INST_BUF_DEPTH];
+static volatile uint16_t buffer1[INST_BUF_DEPTH];
+static volatile uint16_t buffer2[INST_BUF_DEPTH];
+static volatile uint16_t buffer3[INST_BUF_DEPTH];
 static volatile adcsample_t fx_samples[FX_BUF_DEPTH];
-static volatile dacsample_t dac_samples[INST_BUF_DEPTH];
 
-/****************** Semaphores *****************************************/
+/****************** Semaphores and shared state*************************/
 /* (Used to indicate conversion completion) */
 static binary_semaphore_t bsAnalogueInst;
 static binary_semaphore_t bsAnalogueFX;
+
+static volatile uint8_t state;
 
 /****************** Configuration Structures ***************************/
 /* Timer used to trigger inst ADC captures */
@@ -150,6 +153,32 @@ static void dac_error_callback(DACDriver* dacp, dacerror_t err)
     while(1);
 }
 
+
+/****************** Other functions ************************************/
+
+// Used on double-buffered DMA streams.  Set the buffer address which is
+// not currently in use
+void dmaSetOtherMemory(const stm32_dma_stream_t *dmastp,
+                       volatile uint16_t *addr)
+{
+    if(dmastp->stream->CR | DMA_SxCR_CT)
+    {
+        // Memory address 1 active, so set address 0
+        dmaStreamSetMemory0(dmastp, addr);
+    }
+    else
+    {
+        // Memory address 0 active, so set address 1
+        dmaStreamSetMemory1(dmastp, addr);
+    }
+
+}
+
+void dsp_stuff(volatile uint16_t *buffer)
+{
+    (void)buffer;
+}
+
 /****************** Thread main loop ***********************************/
 msg_t analogue_thread(void *args)
 {
@@ -162,14 +191,14 @@ msg_t analogue_thread(void *args)
     adcInit();
     adcStart(&ADCD1, NULL);
     adcStart(&ADCD2, NULL);
-    adcStartConversion(&ADCD1, &adc_con_group_1, (adcsample_t*)inst_samples,
+    adcStartConversion(&ADCD1, &adc_con_group_1, (adcsample_t*)buffer1,
                        INST_BUF_DEPTH);
     adcStartConversion(&ADCD2, &adc_con_group_2, (adcsample_t*)fx_samples,
                        FX_BUF_DEPTH);
 
     dacInit();
     dacStart(&DACD1, &dac_cfg);
-    dacStartConversion(&DACD1, &dac_conv_grp, (dacsample_t*)dac_samples,
+    dacStartConversion(&DACD1, &dac_conv_grp, (dacsample_t*)buffer3,
                        INST_BUF_DEPTH);
     // Enable DAC output buffer:
     DACD1.params->dac->CR |= DAC_CR_BOFF1;
@@ -186,11 +215,45 @@ msg_t analogue_thread(void *args)
     gptStartContinuous(&GPTD8, 2);
     GPTD8.tim->DIER &= ~STM32_TIM_DIER_UIE;
 
+    state = 1;
+
+    // States:
+    // 1 - ADC:buf1, DSP:buf2, DAC:buf3
+    // 2 - DSP:buf1, DAC:buf2, ADC:buf3
+    // 3 - DAC:buf1, ADC:buf2, DSP:buf3
+
     /* Wait until the ADC callback boops the semaphore. */
+    volatile uint16_t *dsp_buf;
     while(true) {
         chSysLock();
         chBSemWaitS(&bsAnalogueInst);
         chSysUnlock();
-        // save_results();
+
+        state += 1;
+
+        switch(state)
+        {
+            case 1:
+                dmaSetOtherMemory(ADCD1.dmastp, buffer1);
+                dsp_buf = buffer2;
+                dmaSetOtherMemory(DACD1.params->dma, buffer3);
+                break;
+            case 2:
+                dmaSetOtherMemory(ADCD1.dmastp, buffer3);
+                dsp_buf = buffer1;
+                dmaSetOtherMemory(DACD1.params->dma, buffer2);
+                break;
+            case 3:
+                dmaSetOtherMemory(ADCD1.dmastp, buffer2);
+                dsp_buf = buffer3;
+                dmaSetOtherMemory(DACD1.params->dma, buffer1);
+                break;
+            default:
+                state = 1;
+                dmaSetOtherMemory(ADCD1.dmastp, buffer1);
+                dsp_buf = buffer2;
+                dmaSetOtherMemory(DACD1.params->dma, buffer3);
+        }
+        dsp_stuff(dsp_buf);
     }
 }
