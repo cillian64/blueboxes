@@ -219,12 +219,12 @@ msg_t analog_thread(void *args)
 
     /* Start the GPT timers. They reload at after reaching 1 such that
      * TRGO frequency equals timer frequency. */
-    gptStart(&GPTD3, &gpt_inst_config);
+    gptStart(&GPTD3, &gpt_fx_config);
     GPTD3.tim->CR2 |= STM32_TIM_CR2_MMS(2);
     gptStartContinuous(&GPTD3, 2);
     GPTD3.tim->DIER &= ~STM32_TIM_DIER_UIE;
 
-    gptStart(&GPTD8, &gpt_fx_config);
+    gptStart(&GPTD8, &gpt_inst_config);
     GPTD8.tim->CR2 |= STM32_TIM_CR2_MMS(2);
     gptStartContinuous(&GPTD8, 2);
     GPTD8.tim->DIER &= ~STM32_TIM_DIER_UIE;
