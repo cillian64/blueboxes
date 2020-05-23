@@ -7,7 +7,7 @@
 #include <chbsem.h>
 #include <hal.h>
 
-#include "analogue.h"
+#include "analog.h"
 
 #define INST_BUF_DEPTH 1024
 #define FX_BUF_DEPTH 3
@@ -31,8 +31,8 @@ static volatile adcsample_t fx_samples[FX_BUF_DEPTH];
 
 /****************** Semaphores and shared state*************************/
 /* (Used to indicate conversion completion) */
-static binary_semaphore_t bsAnalogueInst;
-static binary_semaphore_t bsAnalogueFX;
+static binary_semaphore_t bsAnalogInst;
+static binary_semaphore_t bsAnalogFX;
 
 static volatile uint8_t state;
 
@@ -113,7 +113,7 @@ static void adc_inst_callback(ADCDriver *adc_driver_ptr, adcsample_t *buffer, si
     (void)buffer;
     (void)n;
     chSysLockFromISR();
-    chBSemSignalI(&bsAnalogueInst);
+    chBSemSignalI(&bsAnalogInst);
     chSysUnlockFromISR();
 }
 
@@ -123,7 +123,7 @@ static void adc_fx_callback(ADCDriver *adc_driver_ptr, adcsample_t *buffer, size
     (void)buffer;
     (void)n;
     chSysLockFromISR();
-    chBSemSignalI(&bsAnalogueFX);
+    chBSemSignalI(&bsAnalogFX);
     chSysUnlockFromISR();
 }
 
@@ -180,13 +180,13 @@ void dsp_stuff(volatile uint16_t *buffer)
 }
 
 /****************** Thread main loop ***********************************/
-msg_t analogue_thread(void *args)
+msg_t analog_thread(void *args)
 {
     (void)args;
 
-    chRegSetThreadName("Analogue");
-    chBSemObjectInit(&bsAnalogueInst, true);
-    chBSemObjectInit(&bsAnalogueFX, true);
+    chRegSetThreadName("Analog");
+    chBSemObjectInit(&bsAnalogInst, true);
+    chBSemObjectInit(&bsAnalogFX, true);
 
     adcInit();
     adcStart(&ADCD1, NULL);
@@ -226,7 +226,7 @@ msg_t analogue_thread(void *args)
     volatile uint16_t *dsp_buf;
     while(true) {
         chSysLock();
-        chBSemWaitS(&bsAnalogueInst);
+        chBSemWaitS(&bsAnalogInst);
         chSysUnlock();
 
         state += 1;

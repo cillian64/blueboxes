@@ -3,11 +3,11 @@
  * Based on M2FC analogue driver, (c) 2015 Eivind Roson Eide, CUSF
  */
 
-#ifndef ANALOGUE_H
-#define ANALOGUE_H
+#ifndef ANALOG_H
+#define ANALOG_H
 
 #include "ch.h"
 
-msg_t analogue_thread(void *args);
+msg_t analog_thread(void *args);
 
-#endif // #ifndef ANALOGUE_H
+#endif // #ifndef ANALOG_H
