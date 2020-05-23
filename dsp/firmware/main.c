@@ -20,18 +20,17 @@
 #include "hal.h"
 #include "ch_test.h"
 #include "oled.h"
+#include "analog.h"
 
-// Blink thread.
-static THD_WORKING_AREA(waThread1, 128);
-static THD_FUNCTION(Thread1, arg) {
-    (void)arg;
-    chRegSetThreadName("blinker");
-    while (true);
-}
+static THD_WORKING_AREA(waAnalog_Thread, 128);
 
 int main(void) {
     halInit();
     chSysInit();
+
+    chThdCreateStatic(waAnalog_Thread, sizeof(waAnalog_Thread), NORMALPRIO,
+                      analog_thread, NULL);
+
 
     oled_init();
     oled_erase();
