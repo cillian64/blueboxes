@@ -54,56 +54,52 @@ static volatile uint8_t state;
 /* Timer used to trigger inst ADC captures */
 static const GPTConfig gpt_inst_config =
 {
-     44000,             // clock: 44kHz
-     NULL,              // callback function (not used)
-     0,                 // CR2
-     0                  // DIER
+     .frequency = 44000,
+     .callback = NULL,
+     .cr2 = 0,
+     .dier = 0
 };
 
 /* Timer used to trigger FX ADC captures */
 static const GPTConfig gpt_fx_config =
 {
-     1000,              // clock: 1kHz
-     NULL,              // callback function (not used)
-     0,                 // CR2
-     0                  // DIER
+     .frequency = 1000,
+     .callback = NULL,
+     .cr2 = 0,
+     .dier = 0
 };
 
 /* Instrument conversion group */
 static const ADCConversionGroup adc_con_group_1 = {
-    TRUE, /* circular mode */
-    1, /* number of channels in this con_group */
-    adc_inst_callback,
-    adc_error_callback,
-    0, /* ADC_CR1 */
-    /* cr2: Clock the ADC to timer 8 TRGO event*/
-    ADC_CR2_EXTSEL_SRC(14) | ADC_CR2_EXTEN_0,
-    /* smpr1+2: set all channels to 40 cycles per conversion (28+12) */
-    ADC_SMPR1_SMP_AN11(2)| ADC_SMPR1_SMP_AN12(2)| ADC_SMPR1_SMP_AN13(2),
-    ADC_SMPR2_SMP_AN0(2) | ADC_SMPR2_SMP_AN1(2) | ADC_SMPR2_SMP_AN2(2),
-    ADC_SQR1_NUM_CH(1), /* sqr1: set 1 channel in the group */
-    0, /* sqr2: no higher channels being sampled */
-    /* sqr3: set the two channels to sample */
-    ADC_SQR3_SQ1_N(INST_IN_CHN)
+    .circular = TRUE,
+    .num_channels = 1,
+    .end_cb = adc_inst_callback,
+    .error_cb = adc_error_callback,
+    .cr1 = 0,
+    .cr2 = ADC_CR2_EXTSEL_SRC(14) | ADC_CR2_EXTEN_0,  // Trigger on TIM8 TRGO
+    // set all channels to 40 cycles per conversion (28+12):
+    .smpr1 = ADC_SMPR1_SMP_AN11(2)| ADC_SMPR1_SMP_AN12(2)| ADC_SMPR1_SMP_AN13(2),
+    .smpr2 = ADC_SMPR2_SMP_AN0(2) | ADC_SMPR2_SMP_AN1(2) | ADC_SMPR2_SMP_AN2(2),
+    .sqr1 = ADC_SQR1_NUM_CH(1),  // 1 channel in the group
+    .sqr2 = 0,  // no higher channels being sampled
+    .sqr3 = ADC_SQR3_SQ1_N(INST_IN_CHN)  // Set channel to sample
 };
 
 /* FX inputs conversion group */
 static const ADCConversionGroup adc_con_group_2 = {
-    TRUE, /* circular mode */
-    3, /* number of channels in this con group */
-    adc_fx_callback,
-    adc_error_callback,
-    0, /* cr1 */
-    /* cr2: Clock the ADC to timer 3 TRGO event*/
-    ADC_CR2_EXTSEL_SRC(8) | ADC_CR2_EXTEN_0,
-    /* smpr1+2: set all channels to 40 cycles per conversion (28+12) */
-    ADC_SMPR1_SMP_AN11(2)| ADC_SMPR1_SMP_AN12(2)| ADC_SMPR1_SMP_AN13(2),
-    ADC_SMPR2_SMP_AN0(2) | ADC_SMPR2_SMP_AN1(2) | ADC_SMPR2_SMP_AN2(2),
-    ADC_SQR1_NUM_CH(3), /* sqr1: set 3 channels in the group */
-    0, /* sqr2: no higher channels being sampled */
-    /* sqr3: set the channels to sample */
-    ADC_SQR3_SQ1_N(FX_1_CHN) | ADC_SQR3_SQ2_N(FX_2_CHN) | 
-        ADC_SQR3_SQ3_N(FX_3_CHN)
+    .circular = TRUE,
+    .num_channels = 3,
+    .end_cb = adc_fx_callback,
+    .error_cb = adc_error_callback,
+    .cr1 = 0,
+    .cr2 = ADC_CR2_EXTSEL_SRC(8) | ADC_CR2_EXTEN_0,  // Trigger on TIM3 TRGO
+    // set all channels to 40 cycles per conversion (28+12):
+    .smpr1 = ADC_SMPR1_SMP_AN11(2)| ADC_SMPR1_SMP_AN12(2)| ADC_SMPR1_SMP_AN13(2),
+    .smpr2 = ADC_SMPR2_SMP_AN0(2) | ADC_SMPR2_SMP_AN1(2) | ADC_SMPR2_SMP_AN2(2),
+    .sqr1 = ADC_SQR1_NUM_CH(3), // 3 channels in the group
+    .sqr2 = 0, // no higher channels being sampled
+    .sqr3 = ADC_SQR3_SQ1_N(FX_1_CHN) | ADC_SQR3_SQ2_N(FX_2_CHN) |
+            ADC_SQR3_SQ3_N(FX_3_CHN)  // Channels to sample
 };
 
 /* DAC config for DAC1 */
